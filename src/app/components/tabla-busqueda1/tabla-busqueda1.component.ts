@@ -23,13 +23,15 @@ export class TablaBusqueda1Component implements OnInit{
     this.getCityes();
   }
   cityes: city[] = [];
-  citySelected:string='';
+  citySelected:string = '';
 
   constructor(private api:ApiRestService){}
 
   getCityes(){
-    this.api.getCiudades().subscribe(res=>{
-      this.cityes = res.message.resp;
+    this.api.getCountries().subscribe(res=>{
+      this.cityes = res;
+      console.log(res);
+
     })
   }
 }

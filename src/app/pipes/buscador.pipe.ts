@@ -10,8 +10,8 @@ export class BuscadorPipe implements PipeTransform {
     const resultPost = [];
     if (value && Array.isArray(value)) {
       for(const post of value){
-        const nombre = post.nombre || '';
-        const capital = post.capital || ''; // Si es nulo o indefinido, asigna una cadena vacía
+        const nombre = post.title || '';
+        const capital = post.category || ''; // Si es nulo o indefinido, asigna una cadena vacía
         if (nombre.toLowerCase().indexOf(arg.toLowerCase()) > -1) {
           resultPost.push(post);
         }else if(capital.toLowerCase().indexOf(arg.toLowerCase()) > -1){
@@ -19,7 +19,6 @@ export class BuscadorPipe implements PipeTransform {
         }
       }
     }
-
     return resultPost;
   }
 
